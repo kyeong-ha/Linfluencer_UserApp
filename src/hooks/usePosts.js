@@ -6,19 +6,20 @@ import { useParams } from "react-router-dom";
 export default function usePosts(id){
   const [posts, setPosts] = useState([]);
 
+  async function getPosts(id) {
+    await axios.get(
+      `/api/post`, { params: { influencerId: id } }
+    )
+    .then((res) => {
+        const data = res.data.map((post) => ({ ...post }));
+        
+        setPosts(data);
+      });
+}
+
   useEffect(() => {
     if(id !== '') {
-      (async () => {
-        await axios.get(
-          `/api/post`, 
-          { params: { influencerId: id } })
-
-        .then((res) =>{
-          const data = res.data.map((post) => ({
-            ...post,
-          }));
-          setPosts(data); });
-      });
+      getPosts(id);
     }
   }, [ id ]);
 

@@ -21,8 +21,12 @@ module.exports = {
     module: {
         rules: [
         {
-            test: /\.(tsx|ts|js|jsx)$/,
-            use: ["babel-loader", "ts-loader"],
+            test: /\.(ts|tsx)$/,
+            loader: 'esbuild-loader',
+            options: {
+                loader: 'tsx',
+                target: 'es2016',
+            },
         },
         {
             test: /\.(png|jpe?g|gif|mp4)$/,

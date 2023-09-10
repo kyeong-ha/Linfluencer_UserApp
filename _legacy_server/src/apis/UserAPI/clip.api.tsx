@@ -19,10 +19,10 @@ router.post('/', async (req: Request, res: Response) => {
 
 
 // Read a 'Single Clip' by id
-router.get('/:id', async (req: Request, res: Response) => {
+router.get('/:clipId', async (req: Request, res: Response) => {
     try {
         const clip = await prisma.clip.findUnique({
-            where: { id: req.params.id }
+            where: { id: req.params.clipId }
         });
         res.status(StatusCode.OK).send(clip);
 
@@ -31,10 +31,10 @@ router.get('/:id', async (req: Request, res: Response) => {
 
 
 // Update a 'Single Clip' by id
-router.put('/:id', async (req: Request, res: Response) => {
+router.put('/:clipId', async (req: Request, res: Response) => {
     try {
         const clip = await prisma.clip.update({
-            where: { id: req.params.id },
+            where: { id: req.params.clipId },
             data: req.body,
         });
         res.status(StatusCode.OK).send(clip);
@@ -44,10 +44,10 @@ router.put('/:id', async (req: Request, res: Response) => {
 
 
 // Delete a 'Single Clip' by id
-router.delete('/:id', async (req: Request, res: Response) => {
+router.delete('/:clipId', async (req: Request, res: Response) => {
     try {
         const clip = await prisma.clip.delete({
-            where: { id: req.params.id },
+            where: { id: req.params.clipId },
         });
         res.status(StatusCode.OK).send(clip);
 

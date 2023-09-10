@@ -7,10 +7,7 @@ const router: Router = express.Router();
 
 
 // Create a new 'Post'
-router.post('/:influencerId', async (req: Request, res: Response) => {
-    console.log('df');
-    console.log(req.body);
-    console.log(req.params.influencerId)
+router.post('/:id', async (req: Request, res: Response) => {
     try {
         const data = {
             ...req.params,
@@ -27,7 +24,7 @@ router.post('/:influencerId', async (req: Request, res: Response) => {
 router.get('/', async (req: Request, res: Response) => {
     try {
         const post = await prisma.post.findMany({
-            where: { influencerId: req.query.influencerId },
+            where: { influencerId: req.query.id },
             orderBy: { createdAt: 'desc' }
         });
         res.status(StatusCode.OK).send(post);
@@ -36,10 +33,10 @@ router.get('/', async (req: Request, res: Response) => {
 });
 
 // Read a 'Single Post' by id
-router.get('/:id', async (req: Request, res: Response) => {
+router.get('/:postId', async (req: Request, res: Response) => {
     try {
         const post = await prisma.post.findUnique({
-            where: { id: req.params.id }
+            where: { id: req.params.postId }
         });
         res.status(StatusCode.OK).send(post);
 
@@ -48,10 +45,10 @@ router.get('/:id', async (req: Request, res: Response) => {
 
 
 // Update a 'Single Post' by id
-router.put('/:id', async (req: Request, res: Response) => {
+router.put('/:postId', async (req: Request, res: Response) => {
     try {
         const post = await prisma.post.update({
-            where: { id: req.params.id },
+            where: { id: req.params.postId },
             data: req.body,
         });
         res.status(StatusCode.OK).send(post);
@@ -61,10 +58,10 @@ router.put('/:id', async (req: Request, res: Response) => {
 
 
 // Delete a 'Single Post' by id
-router.delete('/:id', async (req: Request, res: Response) => {
+router.delete('/:postId', async (req: Request, res: Response) => {
     try {
         const post = await prisma.post.delete({
-            where: { id: req.params.id },
+            where: { id: req.params.postId },
         });
         res.status(StatusCode.OK).send(post);
 

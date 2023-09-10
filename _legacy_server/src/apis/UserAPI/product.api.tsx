@@ -19,10 +19,10 @@ router.post('/', async (req: Request, res: Response) => {
 
 
 // Read a 'Single Product' by id
-router.get('/:id', async (req: Request, res: Response) => {
+router.get('/:productId', async (req: Request, res: Response) => {
     try {
         const product = await prisma.product.findUnique({
-            where: { id: req.params.id }
+            where: { id: req.params.productId }
         });
         res.status(StatusCode.OK).send(product);
 
@@ -31,10 +31,10 @@ router.get('/:id', async (req: Request, res: Response) => {
 
 
 // Update a 'Single Product' by id
-router.put('/:id', async (req: Request, res: Response) => {
+router.put('/:productId', async (req: Request, res: Response) => {
     try {
         const product = await prisma.product.update({
-            where: { id: req.params.id },
+            where: { id: req.params.productId },
             data: req.body,
         });
         res.status(StatusCode.OK).send(product);
@@ -44,10 +44,10 @@ router.put('/:id', async (req: Request, res: Response) => {
 
 
 // Delete a 'Single Product' by id
-router.delete('/:id', async (req: Request, res: Response) => {
+router.delete('/:productId', async (req: Request, res: Response) => {
     try {
         const product = await prisma.product.delete({
-            where: { id: req.params.id },
+            where: { id: req.params.productId },
         });
         res.status(StatusCode.OK).send(product);
 

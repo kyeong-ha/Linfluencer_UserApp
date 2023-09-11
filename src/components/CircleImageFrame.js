@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 const ProfileImage = styled.img`
-  width: ${(props) => (props.$width ? `${props.$width}` : '100%')};;
-  content: ${(props) => (props.$src ? `url(${props.$src})` : '')};
+  width: ${(props) => (props.width ? `${props.width}` : '100%')};;
+  content: ${(props) => (props.src ? `url(${props.src})` : '')};
   border-radius: 50%;
   position: sticky;
   left: 50%;
@@ -13,7 +13,7 @@ const ProfileImage = styled.img`
 export default function ProfileImg(props) {
   return (
     <>
-      <ProfileImage src={props.$src} width={props.$width}/>
+      <ProfileImage src={props.src} width={props.width}/>
     </>
   )
 }

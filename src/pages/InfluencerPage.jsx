@@ -1,8 +1,9 @@
 import { useParams, Link } from "react-router-dom";
 import useInfluencer from '@/hooks/useInfluencer';
 import usePosts from '@/hooks/usePosts';
-import Profile from '@/components/Profile/Profile';
+import Profile from '@/components/InfluencerPage/Profile/Profile';
 import NotFoundErrorPage from '@/pages/Error/NotFoundError';
+import VideoThumbnail from "../components/common/Thumbnail/VideoThumbnail";
 
 export default function InfluencerPage(){
   const influencer = useInfluencer();

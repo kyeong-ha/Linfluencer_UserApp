@@ -1,5 +1,7 @@
-import Header from '@/components/Header/Header';
+import Header from '@/components/common/Header/Header';
 import { Link } from 'react-router-dom';
+import '@/styles/Main/Main.scss';
+import '@/styles/Main/Header.scss';
 
 export default function MainPage(){
     const hotInfluencerId = 'Bellyvely';

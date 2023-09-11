@@ -5,7 +5,6 @@ const Txt = styled.p`
   font-size: ${(props) => (props.$size ? `${props.$size}` : '1rem')};
   font-weight: ${(props) => (props.$weight ? `${props.$weight}` : 'normal')};
   white-space: pre-line;
-
 `;
 
 export default function Text({ children }, props) {

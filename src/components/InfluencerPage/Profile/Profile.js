@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { ProfileContainer } from '@/styles/ProfileStyle';
-import BackButton from '../Button/BackButton';
+import BackButton from '@/components/common/Button/BackButton';
 import ProfileBanner from '../Profile/ProfileBanner';
-import ProfileImg from '../CircleImageFrame';
+import ProfileImg from '../../CircleImageFrame';
 import ProfileNav from '../Profile/ProfileNav';
-import ArrowButton from '../Button/ArrowButton';
+import ArrowButton from '@/components/common/Button/ArrowButton';
 
 export default function Profile({ influencer }) {
   const [readMore, setReadMore] = useState(false);

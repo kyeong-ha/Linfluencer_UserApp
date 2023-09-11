@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const BannerImg = styled.img`
     width: 150%;
-    content: ${(src) => (src ? `url(${src})` : '')};
+    content: ${(props) => (props.src ? `url(${props.src})` : '')};
     position: absolute;
     top: 0;
     left: 50%;
@@ -17,10 +17,10 @@ const BannerImg = styled.img`
     );
 `;
 
-export default function ProfileBanner(src) {
+export default function ProfileBanner(props) {
   return (
     <>
-      <BannerImg src={src}/>
+      <BannerImg src={props.src}/>
     </>
   )
 }

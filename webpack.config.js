@@ -1,27 +1,22 @@
-const path = require("path");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const path = require("path");
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
-    entry: "./src/index.js",
+    entry: "./src/index.tsx",
     resolve: {
-        extensions: [".js", ".jsx"],
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
         alias: {
-            "@": path.resolve(__dirname, "src/"),
+        "@": path.resolve(__dirname, "src/")
+
         }
     },
     module: {
         rules: [
         {
-            test: /\.jsx?/,
-            loader: 'babel-loader',
-            options: {
-                presets: [
-                  '@babel/preset-env', 
-                  [ "@babel/preset-react", {"runtime": "automatic"} ]
-                ],
-            },
+            test: /\.(tsx|ts|js|jsx)$/,
+            use: ["babel-loader", "ts-loader"],
         },
         {
             test: /\.(png|jpe?g|gif|mp4)$/,

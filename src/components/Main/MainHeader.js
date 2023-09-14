@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Header from '../common/Header/Header';
 
 const BannerImg = styled.img`
     width: 150%;
@@ -17,10 +18,17 @@ const BannerImg = styled.img`
     );
 `;
 
-export default function ProfileBanner(props) {
+export default function MainHeader(props) {
   return (
     <>
-      <BannerImg src={props.src}/>
+      <Header>
+        <span>로고</span>
+        <span className='search-bar'>검색바</span>
+        <span className='buttons-wrap'>
+            <div>검색</div>
+            <div>+</div>
+        </span>
+      </Header>
     </>
   )
 }

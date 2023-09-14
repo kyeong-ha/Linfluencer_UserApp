@@ -11,6 +11,7 @@ export const ProfileContainer = styled.div`
   z-index: 1;
   background-color: #fff;
   white-space: pre-line;
+  box-shadow: 0px 0px 5px #0000001e;
 
   > channel-name {
     font-size: 1.5em;

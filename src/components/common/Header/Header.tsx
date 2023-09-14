@@ -9,7 +9,7 @@ const Head = styled.div`
     position: fixed;
 `;
 
-export default function Header({ children }) {
+export default function Header({ children } : { children: ReactNode[] }) {
     return (
         <>
         <Head id="header">

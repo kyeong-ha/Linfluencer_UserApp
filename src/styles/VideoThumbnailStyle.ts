@@ -4,11 +4,11 @@ export const Thumb = styled.div`
     position: relative;
     width: auto;
     height: min-content;
-    margin: 0 5% 1.5em 5%;
+    margin: 1em 5% 1em 5%;
     border-radius: 0px 0px 10px 10px;
     border-radius: 1.1em;
     overflow: hidden;
-    box-shadow: 0px 0px 3px #0000006e;
+    box-shadow: 0px 0px 3px #0000004e;
     
     > img { width: 100%; object-fit: cover; }
 

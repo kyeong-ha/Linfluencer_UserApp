@@ -7,7 +7,7 @@ const Img = styled.img`
   content: ${(src) => (src ? `url(${src})` : '')};
 `;
 
-const Image = (src) => {
+const Image = ({ src }: { src: string }) => {
   return <Img src={src}></Img>;
 }
 

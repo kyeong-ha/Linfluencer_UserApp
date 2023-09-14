@@ -1,21 +1,14 @@
-import Header from '@/components/common/Header/Header';
 import { Link } from 'react-router-dom';
 import '@/styles/Main/Main.scss';
 import '@/styles/Main/Header.scss';
+import MainHeader from '@/components/Main/MainHeader';
 
 export default function MainPage(){
     const hotInfluencerId = 'Bellyvely';
 
     return (
         <>
-            <Header>
-                <span>로고</span>
-                <span className='search-bar'>검색바</span>
-                <span className='buttons-wrap'>
-                    <div>검색</div>
-                    <div>+</div>
-                </span>
-            </Header>
+            <MainHeader />
             <div className='container'>
                 <img className='center-image'/>
                 <div className='category'>

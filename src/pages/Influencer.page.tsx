@@ -1,9 +1,8 @@
-import { useParams, Link } from "react-router-dom";
 import useInfluencer from '@/hooks/useInfluencer';
 import usePosts from '@/hooks/usePosts';
 import Profile from '@/components/InfluencerPage/Profile/Profile';
 import NotFoundErrorPage from '@/pages/Error/NotFoundError';
-import VideoThumbnail from "../components/common/Thumbnail/VideoThumbnail";
+import PostList from "@/components/InfluencerPage/PostList";
 
 export default function InfluencerPage(){
   const influencer = useInfluencer();
@@ -14,16 +13,7 @@ export default function InfluencerPage(){
     return (
       <>
         <Profile influencer={influencer}></Profile>
-
-        <div id='container'>
-          <div id='post-list'>
-            { posts.map(post => (
-              <a key={post.postId} id='post'>
-                <VideoThumbnail src={post.thumbnailImg} title={post.title}></VideoThumbnail>
-              </a>
-            )) }
-          </div>
-        </div>
+        <PostList influencer={influencer} posts={posts}></PostList>
       </>
     )
   }

@@ -4,12 +4,12 @@ import { Thumb, Details } from '@/styles/VideoThumbnailStyle'
 interface VideoThumbnailProps{
   readonly title?: string;
   readonly src?: string;
-  readonly onClick?: () => void;
+  readonly to?: string;
 }
 
-export default function VideoThumbnail({ onClick, title, src }: VideoThumbnailProps) {
+export default function VideoThumbnail({ title, src, to }: VideoThumbnailProps) {
   return (
-    <Thumb id="video-thumb" onClick={onClick}>
+    <Thumb id="video-thumb" href={to}>
       
       <Details>
         <thumb-title>{title}</thumb-title>

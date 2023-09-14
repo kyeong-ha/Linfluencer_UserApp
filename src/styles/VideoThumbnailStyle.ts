@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
-export const Thumb = styled.div`
+export const Thumb = styled.a`
     position: relative;
+    display: block;
     width: auto;
     height: min-content;
     margin: 1em 5% 1em 5%;

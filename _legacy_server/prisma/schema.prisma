@@ -57,7 +57,8 @@ model Clip {
   products        Product[]
 
   post            Post          @relation(fields: [postId], references: [postId])
-  postId          String           
+  postId          String
+  influencerId    String        @default("")
 }
 
 model Product {

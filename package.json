@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.tsx",
   "license": "MIT",
+  "homepage": "https://kyeong-ha.github.io/Linfluencer_UserApp",
   "scripts": {
     "dev": "npx webpack-dev-server --config webpack.dev.js --open --hot --mode=development",
     "build": "npx webpack --config webpack.prod.js --mode=production",

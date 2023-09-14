@@ -12,19 +12,19 @@ export default function InfluencerPage(){
   /* 인플루언서 ID가 있는 경우 */
   if (influencer.influencerId !== undefined) {
     return (
-        <>
-          <Profile influencer={influencer}></Profile>
+      <>
+        <Profile influencer={influencer}></Profile>
 
-            <div id='container'>
-                <div id='post-list'>
-                  { posts.map(post => (
-                    <a key={post.postId} id='post'>
-                      <VideoThumbnail src={post.thumbnailImg} title={post.title}></VideoThumbnail>
-                    </a>
-                  )) }
-                </div>
-            </div>
-        </>
+        <div id='container'>
+          <div id='post-list'>
+            { posts.map(post => (
+              <a key={post.postId} id='post'>
+                <VideoThumbnail src={post.thumbnailImg} title={post.title}></VideoThumbnail>
+              </a>
+            )) }
+          </div>
+        </div>
+      </>
     )
   }
   /* 인플루언서 ID가 없는 경우 */

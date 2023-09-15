@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 const SVG = styled.div<ArrowSVGProps>`
+cursor: pointer;
 width: fit-content;
 background-color: transparent;
 transform: 
@@ -20,11 +21,12 @@ interface ArrowSVGProps{
   readonly $top?: boolean;
   readonly $right?: boolean;
   readonly $bottom?: boolean;
+  readonly $onClick?: () => void;
 }
 
 export default function ArrowButton($props: ArrowSVGProps) {
   return (
-      <SVG {...$props}>
+      <SVG {...$props} onClick={$props.$onClick}>
       <svg id="arrow-button" width="1.2em" height="1.2em" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g>
           <path d="M2 2.00008L7.5 7.40991L13 2.00008" stroke="#858585" strokeLinecap="round" strokeLinejoin="round"/>

@@ -16,8 +16,18 @@ module.exports = {
         rules: [
         {
             test: /\.(tsx|ts|js|jsx)$/,
-            use: ["babel-loader", "ts-loader"],
-            exclude: "/node_modules",
+            exclude: /node_modules/,
+            loader: 'babel-loader',
+            options: {
+              cacheCompression: false,
+              cacheDirectory: true,
+              presets: [
+                '@babel/preset-env',
+                ['@babel/preset-react', { runtime: 'automatic' }],
+                '@babel/preset-typescript',
+              ],
+              plugins: [['babel-plugin-styled-components']]
+            },
         },
         {
             test: /\.(png|jpe?g|gif|mp4)$/,

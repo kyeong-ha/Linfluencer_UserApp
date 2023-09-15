@@ -1,39 +1,36 @@
 import { IProduct } from "./product.type";
 
 export interface IClip {
-    id: string;
-    clipUrl: string;
-    products: IProduct[];
-
-    postId: string;
+    readonly clipId: string;
+    readonly clipUrl: string;
+    readonly  products: IProduct[];
+    readonly postId: string;
 }
 
 export class Clip {
-    private id: string;
-    private clipUrl: string;
-    private products: IProduct[] | null = null;
+  clipId: string;
+  clipUrl: string;
+  products: IProduct[] | null = null;postId: string;
 
-    private postId: string;
+  constructor(clipId: string, clipUrl: string, postId: string) {
+      this.clipId = clipId;
+      this.clipUrl = clipUrl;
+      this.postId = postId;
+  }
 
-    constructor(id: string, clipUrl: string, postId: string) {
-        this.id = id;
-        this.clipUrl = clipUrl;
-        this.postId = postId;
-    }
+  public setId = (clipId: string): void => {
+      this.clipId = clipId;
+  }
 
-    public setId = (id: string): void => {
-        this.id = id;
-    }
+  public setClipUrl = (clipUrl: string): void => {
+      this.clipUrl = clipUrl;
+  }
+  
+  public setProducts = (products: IProduct[]): void => {
+      this.products = products;
+  }
 
-    public setClipUrl = (clipUrl: string): void => {
-        this.clipUrl = clipUrl;
-    }
-    
-    public setProducts = (products: IProduct[]): void => {
-        this.products = products;
-    }
-
-    public setPostId = (postId: string): void => {
-        this.postId = postId;
-    }
+  public setPostId = (postId: string): void => {
+      this.postId = postId;
+  }
 }

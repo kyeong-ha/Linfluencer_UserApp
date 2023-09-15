@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 const DefaultButton = styled.button`
-
+  width: fit-content;
+  cursor: pointer;
 `
 
 const Button = () => {

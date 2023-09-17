@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Slider, { SliderProps } from '@mui/material/Slider';
 import { alpha, styled } from '@mui/material/styles';
 import ArrowButton from './common/Button/ArrowButton';
-import styledComponents from 'styled-components'
+import styledComponents from 'styled-components';
 
 const StyledWrap = styledComponents.div`
   width: 100%;
@@ -82,7 +82,7 @@ const CustomSlider = styled(Slider)<SliderProps>(({ theme }) => ({
 const maxValue = 60;
 
 const marks = [
-  { value: 0 },
+  { value: 0, src: '' },
   { value: 10 },
   { value: 37 },
   { value: 60 },
@@ -114,7 +114,7 @@ export default function SliderBar() {
 
   const next = () => {
     const newIndex = getIndex(value)
-    if(newIndex < marks.length) {
+    if(newIndex < marks.length-1) {
       setValue(marks[newIndex+1].value);
     }
   };

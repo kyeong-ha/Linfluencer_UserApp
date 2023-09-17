@@ -5,6 +5,7 @@ import useClips from '@/hooks/useClips';
 import usePost from '@/hooks/usePost';
 import { Link, useParams } from 'react-router-dom';
 import DiscreteSliderValues from '@/components/SliderBar';
+import ShowroomContainer from '@/components/Showroom/ShowroomContainer';
 
 export default function ShowroomPage(){
   let { influencerId, showroomId } = useParams() as { influencerId: string, showroomId: string };
@@ -24,7 +25,7 @@ export default function ShowroomPage(){
         );
       })}
       </div>
-
+      <ShowroomContainer />
         <DiscreteSliderValues>
         </DiscreteSliderValues>
     </>

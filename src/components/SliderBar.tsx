@@ -17,6 +17,8 @@ const StyledWrap = styledComponents.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1000;
+  box-shadow: 0px 0px 7px #0000001e;
 `;
 const Slide = styledComponents.div`
   width: 90%;
@@ -26,6 +28,7 @@ const Slide = styledComponents.div`
   justify-content: space-between;
   align-items: center;
   z-index: 2;
+  
 `;
 
 const CustomSlider = styled(Slider)<SliderProps>(({ theme }) => ({
@@ -88,7 +91,11 @@ const marks = [
   { value: 60 },
 ];
 
-export default function SliderBar() {
+type Props = {
+  moveSlide: (direction: number) => void;
+}
+
+export default function SliderBar({moveSlide}) {
   const [value, setValue] = useState<number>(0);
   const handleChange = (event: Event, newValue: number | number[]) => {
     if (typeof newValue === 'number') {
@@ -109,6 +116,7 @@ export default function SliderBar() {
     const newIndex = getIndex(value)
     if(newIndex > 0) {
       setValue(marks[newIndex-1].value);
+      moveSlide(-1);
     }
   };
 
@@ -116,6 +124,7 @@ export default function SliderBar() {
     const newIndex = getIndex(value)
     if(newIndex < marks.length-1) {
       setValue(marks[newIndex+1].value);
+      moveSlide(1);
     }
   };
   return (

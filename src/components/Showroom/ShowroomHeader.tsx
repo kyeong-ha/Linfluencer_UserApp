@@ -16,6 +16,7 @@ const StyledHeader = styled.div`
     top: 0;
     left: 0;
     z-index: 2;
+    box-shadow: 0px 0px 10px #0000001e;
 `;
 
 export default function ShowroomHeader({ children }: { children: ReactNode[] }) {

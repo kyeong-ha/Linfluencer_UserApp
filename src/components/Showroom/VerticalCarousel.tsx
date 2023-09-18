@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import Slide from "./Slide";
 import PropTypes from "prop-types";
+import SliderBar from "../SliderBar";
 
 const Wrapper = styled.div`
   position: relative;
@@ -20,7 +21,7 @@ const NavigationButtons = styled.div`
   width: 20%;
   margin-top: 1rem;
   justify-content: space-between;
-  z-index: 1000;
+  z-index: 10;
 `;
 
 const NavBtn = styled.div`
@@ -29,6 +30,7 @@ const NavBtn = styled.div`
   margin-bottom: 10px;
   border-radius: 3px;
 `;
+
 
 function mod(a, b) {
   return ((a % b) + b) % b;
@@ -79,15 +81,19 @@ class VerticalCarousel extends React.Component {
   };
 
   moveSlide = direction => {
-    this.setState({
-      index: this.modBySlidesLength(this.state.index + direction),
-      goToSlide: null
-    });
+    var target = this.state.index + direction;
+
+    if (target >= 0 && target < this.props.slides.length) {
+      this.setState({
+        index: this.modBySlidesLength(target),
+        goToSlide: null
+      });
+    }
   };
 
   clampOffsetRadius(offsetRadius) {
     const { slides } = this.props;
-    const upperBound = Math.floor((slides.length - 1) / 2);
+    const upperBound = slides.length-1
 
     if (offsetRadius < 0) {
       return 0;
@@ -106,10 +112,23 @@ class VerticalCarousel extends React.Component {
     offsetRadius = this.clampOffsetRadius(offsetRadius);
     const presentableSlides = new Array();
 
-    for (let i = -offsetRadius; i < 1 + offsetRadius; i++) {
-      presentableSlides.push(slides[this.modBySlidesLength(index + i)]);
+   
+    let startIndex = 0;
+
+    if (index < offsetRadius) {
+      startIndex = offsetRadius - index;
     }
 
+    for (
+      let i = Math.max(index - offsetRadius, 0);
+      i < Math.min(index + offsetRadius, slides.length);
+      i++
+    ) {
+      presentableSlides.push({
+        ...slides[this.modBySlidesLength(i)],
+        presentableIndex: startIndex++
+      });
+    }
     return presentableSlides;
   }
 
@@ -119,23 +138,23 @@ class VerticalCarousel extends React.Component {
     let navigationButtons = null;
     if (showNavigation) {
       navigationButtons = (
-        <NavigationButtons>
-          <NavBtn onClick={() => this.moveSlide(1)}>&#8593;</NavBtn>
-          <NavBtn onClick={() => this.moveSlide(-1)}>&#8595;</NavBtn>
-        </NavigationButtons>
+        <SliderBar moveSlide={this.moveSlide}/>
+        // <NavigationButtons>
+        //   <NavBtn onClick={() => this.moveSlide(-1)}>&#8593;</NavBtn>
+        //   <NavBtn onClick={() => this.moveSlide(1)}>&#8595;</NavBtn>
+        // </NavigationButtons>
       );
     }
     return (
       <React.Fragment>
         <Wrapper>
-          {this.getPresentableSlides().map((slide, presentableIndex) => (
+          {this.getPresentableSlides().map((slide) => (
             <Slide
               key={slide.key}
               content={slide.content}
               moveSlide={this.moveSlide}
               offsetRadius={this.clampOffsetRadius(offsetRadius)}
-              index={presentableIndex}
-              animationConfig={animationConfig}
+              index={slide.presentableIndex}
             />
           ))}
         </Wrapper>

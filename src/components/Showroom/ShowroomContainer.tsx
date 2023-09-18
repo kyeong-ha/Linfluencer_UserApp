@@ -5,42 +5,40 @@ import { config } from "react-spring";
 let slides = [
   {
     key: 1,
-    content: <img src='https://i.ytimg.com/vi/EmioAiCisvM/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBMcEEvtTchDtdSl307ew-E1ngIQA' style={{ width: '100vw'}}/>
+    content: 
+    <div>
+      <p style={ { fontSize: '1.5rem' }} >Title</p>
+      <img src='https://i.ytimg.com/vi/EmioAiCisvM/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBMcEEvtTchDtdSl307ew-E1ngIQA' style={{ width: '100vw'}}/>
+    </div>
   },
   {
     key: 2,
-    content: <img src='https://i.ytimg.com/vi/EmioAiCisvM/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBMcEEvtTchDtdSl307ew-E1ngIQA' style={{ width: '100vw'}}/>
+    content: <div>
+    <p style={ { fontSize: '1.5rem' }} >Title</p>
+    <img src='https://i.ytimg.com/vi/EmioAiCisvM/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBMcEEvtTchDtdSl307ew-E1ngIQA' style={{ width: '100vw'}}/>
+  </div>
   },
   {
     key: 3,
-    content: <img src='https://i.ytimg.com/vi/EmioAiCisvM/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBMcEEvtTchDtdSl307ew-E1ngIQA' style={{ width: '100vw'}}/>
+    content: <div>
+    <p style={ { fontSize: '1.5rem' }} >Title</p>
+    <img src='https://i.ytimg.com/vi/EmioAiCisvM/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBMcEEvtTchDtdSl307ew-E1ngIQA' style={{ width: '100vw'}}/>
+  </div>
   },
   {
     key: 4,
-    content: <img src='https://i.ytimg.com/vi/EmioAiCisvM/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBMcEEvtTchDtdSl307ew-E1ngIQA' style={{ width: '100vw'}}/>
+    content: <div>
+    <p style={ { fontSize: '1.5rem' }} >Title</p>
+    <img src='https://i.ytimg.com/vi/EmioAiCisvM/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBMcEEvtTchDtdSl307ew-E1ngIQA' style={{ width: '100vw'}}/>
+  </div>
   },
-  {
-    key: 5,
-    content: <img src='https://i.ytimg.com/vi/EmioAiCisvM/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBMcEEvtTchDtdSl307ew-E1ngIQA' style={{ width: '100vw'}}/>
-  },
-  {
-    key: 6,
-    content: <img src='https://i.ytimg.com/vi/EmioAiCisvM/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBMcEEvtTchDtdSl307ew-E1ngIQA' style={{ width: '100vw'}}/>
-  },
-  {
-    key: 7,
-    content: <img src='https://i.ytimg.com/vi/EmioAiCisvM/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBMcEEvtTchDtdSl307ew-E1ngIQA' style={{ width: '100vw'}}/>
-  },
-  {
-    key: 8,
-    content: <img src='https://i.ytimg.com/vi/EmioAiCisvM/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBMcEEvtTchDtdSl307ew-E1ngIQA' style={{ width: '100vw'}}/>
-  }
+  
 ];
 
 export default class ShowroomContainer extends Component {
   state = {
     goToSlide: 0,
-    offsetRadius: 4,
+    offsetRadius: slides.length,
     showNavigation: true,
     config: config.gentle
   };
@@ -56,7 +54,6 @@ export default class ShowroomContainer extends Component {
           width: "100vw",
           height: "100vh",
           margin: "0 auto",
-          background: "#7FfFbF"
         }}
       >
         <VerticalCarousel

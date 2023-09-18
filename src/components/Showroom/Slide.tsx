@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Spring } from "react-spring/renderprops";
 import { withGesture } from "react-with-gesture";
+import { useScroll } from "react-use-gesture";
 
 const SlideContainer = styled.div`
   position: absolute;
@@ -11,6 +12,8 @@ const SlideContainer = styled.div`
   align-items: center;
   justify-content: center;
   transform-origin: 50% 50%;
+  width: 100vw;
+  border-radius: 8px;
 `;
 
 const SlideCard = styled.div`
@@ -71,24 +74,21 @@ function Slide({
   } else if (offsetFromMiddle < 0) {
     translateY -= translateYoffset;
   }
-
   return (
     <Spring
       to={{
         transform: `translateX(0%) translateY(${translateY}%) scale(${translateY === -50 ? `100%` : `80%`})`,
         top: `${
-          offsetRadius === 0 ? 50 : 50 + (offsetFromMiddle * 20) / offsetRadius
+          (offsetFromMiddle === 1 || offsetFromMiddle === -1) ? 50 + (offsetFromMiddle * 20) / 0.85 : 50 + (offsetFromMiddle * 20) / 0.95
         }%`,
-        opacity: distanceFactor,
-        paddingTop:`${(offsetFromMiddle === 1 || offsetFromMiddle === -1) ? `${100 * 3 / 2}vw` : `${95 * 3 / 2}vw`}`,
-        paddingBottom:`${(offsetFromMiddle === 1 || offsetFromMiddle === -1) ? `${100 * 3 / 2}vw` : `${95 * 3 / 2}vw`}`,
-
-        left:`${translateY === -50 ? '0' : '5%'}`
+        opacity: distanceFactor * distanceFactor,
+        left:`${offsetFromMiddle === 0 ? '0%' : '5%'}`
       }}
       config={animationConfig}
     >
       {style => (
         <SlideContainer
+          onClick={() => moveSlide(offsetFromMiddle)}
           style={{
             ...style,
             zIndex: Math.abs(Math.abs(offsetFromMiddle) - 2),

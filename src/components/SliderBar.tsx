@@ -82,23 +82,13 @@ const CustomSlider = styled(Slider)<SliderProps>(({ theme }) => ({
 }));
 
 
-const maxValue = 60;
-
-const marks = [
-  { value: 0, src: '' },
-  { value: 10 },
-  { value: 37 },
-  { value: 60 },
-];
-
-type Props = {
-  moveSlide: (direction: number) => void;
-}
-
-export default function SliderBar({moveSlide}) {
+export default function SliderBar({moveSlide, marks}: {moveSlide: (direction: number) => void, marks: object[]}) {
+  const maxValue = marks[marks.length-1].value;
   const [value, setValue] = useState<number>(0);
+
   const handleChange = (event: Event, newValue: number | number[]) => {
-    if (typeof newValue === 'number') {
+    if (typeof newValue === 'number' && newValue !== value) {
+      moveSlide(getIndex(newValue)-getIndex(value));
       setValue(newValue);
     }
   };

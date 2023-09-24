@@ -133,16 +133,12 @@ class VerticalCarousel extends React.Component {
   }
 
   render() {
-    const { animationConfig, offsetRadius, showNavigation } = this.props;
+    const { animationConfig, offsetRadius, showNavigation, slides } = this.props;
 
     let navigationButtons = null;
     if (showNavigation) {
       navigationButtons = (
-        <SliderBar moveSlide={this.moveSlide}/>
-        // <NavigationButtons>
-        //   <NavBtn onClick={() => this.moveSlide(-1)}>&#8593;</NavBtn>
-        //   <NavBtn onClick={() => this.moveSlide(1)}>&#8595;</NavBtn>
-        // </NavigationButtons>
+        <SliderBar moveSlide={this.moveSlide} marks={slides}/>
       );
     }
     return (

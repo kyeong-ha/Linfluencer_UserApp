@@ -6,6 +6,6 @@ export default function BackButton() {
 
   return (
       <ArrowButton $left $onClick={() => { navigate(-1); }}
-      style={{margin: '4% 4.5%', position:'absolute', zIndex: '100px'}}>&#60;</ArrowButton>
+      style={{margin: '4% 4.5%', position:'absolute', zIndex: '100px', left: '0'}}>&#60;</ArrowButton>
   )
 }

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const BannerImg = styled.img`
-    width: 150%;
+    width: 175%;
     content: ${(src) => (src ? `url(${src})` : '')};
     top: 0;
     mask-image: linear-gradient(

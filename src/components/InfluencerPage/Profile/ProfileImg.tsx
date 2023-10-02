@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import CircleImageFrame from '@/components/CircleImageFrame';
-import SNSLinks from '../SNSLinks';
-import SNSLink from '../SNSLink';
+import SNSLinks from '../SNSLinkList';
+import SNSLink from '../SNSLinkButton';
 
 const ProfileImage = styled.div`
   width: auto;

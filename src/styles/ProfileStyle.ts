@@ -13,10 +13,10 @@ export const ProfileContainer = styled.div`
   white-space: pre-line;
   box-shadow: 0px 0px 8px #00000012;
 
-  > channel-name {
+  channel-name {
     font-size: 1.5em;
     font-weight: 600;
-    margin-top: 0.8em;
+    margin-top: 1em;
     margin-bottom: 0.2em;
   }
 

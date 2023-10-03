@@ -1,5 +1,5 @@
 import Slider from '@/components/common/Slider';
-import ShowroomThumbnailButton from '@/components/common/Thumbnail/ShowroomThumbnail';
+import ShowroomThumbnailButton from '@/components/Showroom/ShowroomThumbnail';
 import ShowroomHeader from '@/components/Showroom/ShowroomHeader';
 import useClips from '@/hooks/useClips';
 import usePost from '@/hooks/usePost';
@@ -19,7 +19,7 @@ export default function ShowroomPage(){
       <div id='container'>
       { clips.map((clip) => {
         const url = `/${influencerId}/${showroomId}/${clip.clipId}`;
-        
+        console.log(url) 
         return (
             <ShowroomThumbnailButton key={clip.clipId} src={clip.clipUrl} to={url}></ShowroomThumbnailButton>
         );

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Spring } from "react-spring/renderprops";
 import { withGesture } from "react-with-gesture";
 import { useScroll } from "react-use-gesture";
+import { useNavigate, useLocation, Link } from 'react-router-dom'
 
 const SlideContainer = styled.div`
   position: absolute;
@@ -40,10 +41,15 @@ function Slide({
   down,
   up
 }) {
+  
+  const navigate = useNavigate()
+  const location = useLocation()
+
   const offsetFromMiddle = index - offsetRadius;
   const totalPresentables = 2 * offsetRadius + 1;
   const distanceFactor = 1 - Math.abs(offsetFromMiddle / (offsetRadius));
 
+  
   const offsetCardClick = i => {
     console.log(i);
   };
@@ -94,8 +100,12 @@ function Slide({
             zIndex: Math.abs(Math.abs(offsetFromMiddle) - 2),
           }}
         >
-          <SlideCard onClick={() => moveSlide(offsetFromMiddle)}>
-            {content}
+          <SlideCard onClick={() => {
+            console.log(content)
+            moveSlide(offsetFromMiddle); 
+            offsetFromMiddle === 0 ? navigate(`${location.pathname}/${content.key}`) : null;
+          }}>
+            {content.content}
           </SlideCard>
         </SlideContainer>
       )}

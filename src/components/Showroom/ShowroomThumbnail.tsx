@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import Text from '../Text';
-import { ThumbBtn } from './ThumbnailButton';
+import Text from '../common/Text';
+import { ThumbBtn } from '../common/Thumbnail/ThumbnailButton';
 
 interface ThumbnailBtnProps{
   readonly title?: string;

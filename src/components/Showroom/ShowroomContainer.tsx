@@ -4,7 +4,7 @@ import { config } from "react-spring";
 
 const slides = [
   {
-    key: 1,
+    key: 'jk',
     value: 0,
     content: 
     <div>
